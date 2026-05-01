@@ -5,12 +5,13 @@
 //         <span>{t.overview}</span>
 // ============================================================
 
-import { createContext, useContext, useState, useEffect } from "react";
+import { createContext, useContext, useState } from "react";
 
 export const translations = {
   en: {
     // Nav
     overview:      "Overview",
+    statistics:    "Statistics",
     products:      "My Products",
     orders:        "My Orders",
     website:       "My Website",
@@ -95,6 +96,7 @@ export const translations = {
   fr: {
     // Nav
     overview:      "Aperçu",
+    statistics:    "Statistiques",
     products:      "Mes Produits",
     orders:        "Mes Commandes",
     website:       "Mon Site Web",

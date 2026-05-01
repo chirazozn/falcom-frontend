@@ -50,6 +50,7 @@ export default function AdminDashboard() {
   const [editId, setEditId] = useState(null);
   const [sForm,  setSForm]  = useState({ title:"", body:"", target_type:"all", target_user:"" });
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const loadAll = useCallback(async () => {
     setLoadingData(true);
     try {
