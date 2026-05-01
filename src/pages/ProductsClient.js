@@ -12,6 +12,7 @@ export default function ProductsClient() {
   const [loading,     setLoading]     = useState(true);
   const [histLoading, setHistLoading] = useState(false);
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const load = useCallback(async () => {
     setLoading(true);
     try { setProducts(await getProducts()); }

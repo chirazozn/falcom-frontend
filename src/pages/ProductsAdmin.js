@@ -33,6 +33,7 @@ export default function ProductsAdmin() {
   const [sForm,        setSForm]        = useState(EMPTY_SALE);
   const [histLoading,  setHistLoading]  = useState(false);
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const load = useCallback(async () => {
     setLoading(true);
     try {

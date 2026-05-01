@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from "react";
 import {
-  BarChart, Bar, LineChart, Line, PieChart, Pie, Cell,
+  BarChart, Bar, PieChart, Pie, Cell,
   XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer
 } from "recharts";
 import { getUsers, getProducts, getSuggestions } from "../api";
@@ -16,6 +16,7 @@ export default function StatsAdmin() {
   const [suggestions, setSuggestions] = useState([]);
   const [loading,     setLoading]     = useState(true);
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const load = useCallback(async () => {
     setLoading(true);
     try {

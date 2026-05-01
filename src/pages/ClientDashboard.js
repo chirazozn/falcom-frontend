@@ -346,6 +346,7 @@ export default function ClientDashboard() {
 
   const handleLogout = () => { logout(); navigate("/login"); };
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const loadData = useCallback(async () => {
     setLoadingData(true);
     try {

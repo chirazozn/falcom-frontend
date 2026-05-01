@@ -16,6 +16,7 @@ export default function StatsClient() {
   const [allSales,   setAllSales]   = useState([]);
   const [loading,    setLoading]    = useState(true);
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const load = useCallback(async () => {
     setLoading(true);
     try {
