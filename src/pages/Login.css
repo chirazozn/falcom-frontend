@@ -1,0 +1,157 @@
+/* ═══════════════════════════════════════════════════
+   LOGIN PAGE  —  FALCOM
+   White 60% | Blue 30% | Green 10%
+═══════════════════════════════════════════════════ */
+.login-root {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* ── Left brand panel (blue) ──────────────────────*/
+.login-brand {
+  width: 40%;
+  position: relative;
+  background: linear-gradient(150deg, var(--blue-dark) 0%, var(--blue-main) 65%, #1e6ec8 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.brand-orb {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255,255,255,.06);
+}
+.brand-orb.o1 { width:380px; height:380px; top:-80px; left:-100px; }
+.brand-orb.o2 { width:260px; height:260px; bottom:40px; right:-60px; }
+.brand-orb.o3 { width:140px; height:140px; bottom:180px; left:40px; background:rgba(26,184,122,.12); }
+
+.brand-inner {
+  position: relative; z-index: 2;
+  display: flex; flex-direction: column;
+  align-items: center; text-align: center;
+  gap: 14px; padding: 40px 32px;
+}
+
+
+.brand-logo-box img {
+  width: 100px; height: 100px;
+  object-fit: contain;
+  opacity: 1;
+}
+.brand-name {
+  font-family: "Sora", sans-serif;
+  font-size: 2.2rem; font-weight: 800;
+  color: #fff; letter-spacing: .14em;
+}
+.brand-tagline {
+  font-size: .88rem; color: rgba(255,255,255,.65);
+  letter-spacing: .04em; margin-top: -4px;
+}
+.brand-divider {
+  width: 40px; height: 3px;
+  background: var(--green-main);
+  border-radius: 99px; margin: 8px 0;
+  box-shadow: 0 0 10px rgba(26,184,122,.5);
+}
+.brand-features { display:flex; flex-direction:column; gap:11px; align-items:flex-start; margin-top:4px; }
+.brand-feat {
+  display: flex; align-items: center; gap: 10px;
+  color: rgba(255,255,255,.8); font-size: .84rem; font-weight: 500;
+}
+.feat-dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--green-main); flex-shrink: 0;
+  box-shadow: 0 0 6px rgba(26,184,122,.7);
+}
+
+/* Wave separator */
+.brand-wave {
+  position: absolute; right: -1px; top: 0;
+  width: 52px; height: 100%;
+  background: var(--white-soft);
+  clip-path: ellipse(52px 50% at 100% 50%);
+}
+
+/* ── Right form panel (white) ─────────────────────*/
+.login-panel {
+  flex: 1;
+  background: var(--white-soft);
+  display: flex; align-items: center; justify-content: center;
+  padding: 40px 24px;
+}
+
+.login-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--white-mid);
+  padding: 44px 40px;
+  width: 100%; max-width: 420px;
+  animation: slideUp .35s ease;
+}
+
+/* Mobile logo (shown when brand panel hidden) */
+.mobile-logo {
+  display: none;
+  align-items: center; gap: 10px;
+  margin-bottom: 22px;
+}
+.mobile-logo img { width: 1400px; height: 100px; object-fit: contain; }
+.mobile-logo span {
+  font-family: "Sora", sans-serif; font-weight: 800;
+  font-size: 1.15rem; color: var(--blue-main); letter-spacing: .1em;
+}
+
+.login-heading { font-size: 1.75rem; font-weight: 800; margin-bottom: 4px; }
+.login-sub { color: var(--text-soft); font-size: .88rem; margin-bottom: 28px; }
+
+.login-form { display: flex; flex-direction: column; gap: 18px; }
+
+/* Input with icon */
+.input-wrap { position: relative; display: flex; align-items: center; }
+.input-ico {
+  position: absolute; left: 13px;
+  font-size: .85rem; pointer-events: none; z-index:1;
+  color: var(--text-muted);
+}
+.input-wrap .form-input { padding-left: 38px; padding-right: 44px; }
+.pass-eye {
+  position: absolute; right: 11px;
+  background: none; border: none; cursor: pointer;
+  font-size: .88rem; padding: 4px; border-radius: 4px;
+  transition: var(--transition); color: var(--text-soft);
+}
+.pass-eye:hover { background: var(--white-mid); color: var(--blue-main); }
+
+/* Submit */
+.login-btn {
+  padding: 13px; font-size: .95rem;
+  margin-top: 4px; letter-spacing: .02em;
+}
+.btn-arrow { transition: transform .18s; }
+.login-btn:hover .btn-arrow { transform: translateX(4px); }
+
+/* Forgot link */
+.login-foot { text-align: center; margin-top: 18px; }
+.forgot-link {
+  background: none; border: none; cursor: pointer;
+  color: var(--blue-main); font-size: .855rem; font-weight: 600;
+  text-decoration: underline; text-underline-offset: 3px;
+  transition: var(--transition);
+}
+.forgot-link:hover { color: var(--green-main); }
+
+/* ── Responsive ─────────────────────────────────────*/
+@media (max-width: 860px) {
+  .login-brand { display: none; }
+  .mobile-logo { display: flex; }
+  .login-card  { padding: 32px 26px; }
+}
+@media (max-width: 480px) {
+  .login-card  { padding: 26px 18px; border-radius: var(--radius); }
+  .login-heading { font-size: 1.45rem; }
+}

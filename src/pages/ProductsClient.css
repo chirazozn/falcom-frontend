@@ -1,0 +1,91 @@
+/* ═══════════════════════════════════════════
+   PRODUCTS CLIENT — FALCOM
+═══════════════════════════════════════════ */
+.pc-root { display:flex; flex-direction:column; gap:24px; }
+.pc-loading { display:flex; align-items:center; justify-content:center; padding:80px; }
+
+/* ── Summary row ─────────────────────────── */
+.pc-summary {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+.pc-sum-card {
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  display: flex; align-items: center; gap: 14px;
+  box-shadow: var(--shadow-xs);
+}
+.pc-sum-icon { font-size:1.6rem; flex-shrink:0; }
+.pc-sum-val   { font-family:"Sora",sans-serif; font-size:1.5rem; font-weight:800; line-height:1; }
+.pc-sum-label { font-size:.7rem; font-weight:600; text-transform:uppercase; letter-spacing:.04em; margin-top:3px; opacity:.75; }
+
+.pc-sum-blue    { background:var(--blue-pale); color:var(--blue-main); }
+.pc-sum-green   { background:var(--green-light); color:var(--green-dark); }
+.pc-sum-dark    { background:var(--white-mid); color:var(--text-dark); }
+.pc-sum-revenue { background:linear-gradient(135deg,var(--green-main),var(--green-dark)); color:#fff; }
+
+/* ── Products grid ───────────────────────── */
+.pc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px,1fr));
+  gap: 20px;
+}
+
+.pc-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  border: 1px solid var(--white-mid);
+  box-shadow: var(--shadow-xs);
+  overflow: hidden;
+  display: flex; flex-direction: column;
+  transition: var(--transition);
+}
+.pc-card:hover { box-shadow:var(--shadow-md); transform:translateY(-2px); }
+
+.pc-img-wrap { height:180px; background:var(--white-soft); overflow:hidden; flex-shrink:0; }
+.pc-img { width:100%; height:100%; object-fit:cover; transition:transform .3s ease; }
+.pc-card:hover .pc-img { transform:scale(1.04); }
+.pc-img-ph { width:100%; height:100%; display:flex; align-items:center; justify-content:center; font-size:3.5rem; color:var(--text-muted); }
+
+.pc-body { padding:18px; flex:1; display:flex; flex-direction:column; gap:10px; }
+.pc-name { font-size:1rem; font-weight:800; }
+.pc-desc { font-size:.8rem; color:var(--text-soft); line-height:1.5; }
+
+.pc-stats { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+.pc-stat {
+  background:var(--white-soft); border-radius:var(--radius-sm);
+  padding:9px 11px; display:flex; flex-direction:column; gap:3px;
+}
+.pc-stat-label { font-size:.68rem; color:var(--text-soft); font-weight:600; text-transform:uppercase; letter-spacing:.04em; }
+.pc-stat-val   { font-size:.92rem; font-weight:800; color:var(--text-dark); display:flex; align-items:center; gap:6px; }
+.pc-low-stock  { color:var(--danger); }
+.pc-low-tag    { font-size:.65rem; font-weight:700; background:var(--danger-light); color:var(--danger); padding:2px 6px; border-radius:99px; }
+.pc-stat-revenue { grid-column:span 2; background:var(--green-light); }
+.pc-revenue-val  { color:var(--green-main); font-size:1rem; }
+
+.pc-hist-btn { margin-top:4px; width:100%; justify-content:center; }
+
+/* ── History modal (reuse admin styles) ─── */
+.hist-summary {
+  display:flex; gap:0;
+  border:1px solid var(--white-mid);
+  border-radius:var(--radius-sm);
+  overflow:hidden; margin-bottom:18px;
+}
+.hist-sum-item {
+  flex:1; padding:14px 16px;
+  display:flex; flex-direction:column; gap:4px;
+  border-right:1px solid var(--white-mid);
+  text-align:center;
+}
+.hist-sum-item:last-child { border-right:none; }
+.hist-sum-item span   { font-size:.72rem; color:var(--text-soft); font-weight:600; text-transform:uppercase; }
+.hist-sum-item strong { font-size:1.1rem; font-weight:800; color:var(--text-dark); }
+.hist-table-wrap { overflow-x:auto; }
+.hist-total-row td { background:var(--white-soft); font-size:.85rem; padding:12px 18px; }
+.modal-lg { max-width:700px; }
+
+@media (max-width:1024px) { .pc-summary { grid-template-columns:repeat(2,1fr); } }
+@media (max-width:768px)  { .pc-summary { grid-template-columns:1fr 1fr; } .pc-grid { grid-template-columns:1fr; } }
+@media (max-width:480px)  { .pc-summary { grid-template-columns:1fr; } }

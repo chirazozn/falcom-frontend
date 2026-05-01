@@ -1,0 +1,65 @@
+.stats-root { display:flex; flex-direction:column; gap:24px; }
+.stats-loading { display:flex; align-items:center; justify-content:center; padding:80px; }
+
+/* ── KPI Grid ──────────────────────────────── */
+.stats-kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(6,1fr);
+  gap: 14px;
+}
+.kpi-card {
+  border-radius: var(--radius);
+  padding: 18px 16px;
+  display: flex; flex-direction: column; gap: 6px;
+  box-shadow: var(--shadow-xs); transition: var(--transition);
+}
+.kpi-card:hover { transform:translateY(-2px); box-shadow:var(--shadow-sm); }
+.kpi-icon  { font-size:1.4rem; }
+.kpi-val   { font-family:"Sora",sans-serif; font-size:1.4rem; font-weight:800; line-height:1; }
+.kpi-label { font-size:.68rem; font-weight:600; text-transform:uppercase; letter-spacing:.04em; opacity:.75; }
+
+.kpi-blue    { background:var(--blue-pale);   color:var(--blue-main); }
+.kpi-green   { background:var(--green-light); color:var(--green-dark); }
+.kpi-dark    { background:var(--white-mid);   color:var(--text-dark); }
+.kpi-revenue { background:linear-gradient(135deg,var(--green-main),var(--green-dark)); color:#fff; }
+.kpi-warn    { background:var(--warn-light);  color:var(--warn); }
+
+/* ── Charts grid ───────────────────────────── */
+.charts-grid {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 20px;
+}
+.chart-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  border: 1px solid var(--white-mid);
+  box-shadow: var(--shadow-xs);
+  padding: 22px 20px;
+  transition: var(--transition);
+}
+.chart-card:hover { box-shadow: var(--shadow-sm); }
+.chart-wide { grid-column: span 2; }
+.chart-title {
+  font-size: .95rem; font-weight: 800;
+  color: var(--text-dark); margin-bottom: 16px;
+}
+
+/* ── Tooltip ───────────────────────────────── */
+.chart-tooltip {
+  background: var(--blue-dark);
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+  box-shadow: var(--shadow-md);
+}
+.ct-label {
+  color: rgba(255,255,255,.7);
+  font-size: .75rem; font-weight: 700;
+  text-transform: uppercase; margin-bottom: 6px;
+}
+.chart-tooltip p { color: white; font-size: .82rem; margin: 2px 0; }
+.chart-tooltip strong { font-weight: 800; }
+
+@media (max-width:1200px) { .stats-kpi-grid { grid-template-columns:repeat(3,1fr); } }
+@media (max-width:900px)  { .charts-grid { grid-template-columns:1fr; } .chart-wide { grid-column:span 1; } }
+@media (max-width:600px)  { .stats-kpi-grid { grid-template-columns:repeat(2,1fr); } }

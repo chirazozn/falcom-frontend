@@ -1,0 +1,84 @@
+/* ═══════════════════════════════════════════
+   ADMIN DASHBOARD — FALCOM
+═══════════════════════════════════════════ */
+
+/* ── Overview user list ─────────────────── */
+.recent-list { display:flex; flex-direction:column; gap:10px; }
+.recent-row {
+  background:var(--white); border:1px solid var(--white-mid);
+  border-radius:var(--radius-sm); padding:13px 18px;
+  display:flex; align-items:center; gap:14px;
+  box-shadow:var(--shadow-xs); transition:var(--transition);
+}
+.recent-row:hover { box-shadow:var(--shadow-sm); }
+.recent-row-info { flex:1; display:flex; flex-direction:column; gap:1px; }
+.recent-row-name  { font-weight:600; font-size:.88rem; }
+.recent-row-email { color:var(--text-soft); font-size:.78rem; }
+
+/* ── Suggestion cards (admin) ───────────── */
+.sug-card-head {
+  display:flex; align-items:center; gap:10px; justify-content:space-between;
+}
+.sug-icon   { font-size:1.3rem; }
+.sug-meta   { display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+.sug-date   { font-size:.72rem; color:var(--text-soft); }
+.sug-title  { font-size:.98rem; font-weight:700; }
+.sug-body-text {
+  font-size:.855rem; color:var(--text-mid); line-height:1.62; flex:1;
+}
+.sug-foot {
+  display:flex; align-items:center; justify-content:space-between;
+  padding-top:11px; border-top:1px solid var(--white-mid); margin-top:auto;
+}
+.sug-likes { font-size:.82rem; color:var(--text-soft); font-weight:600; }
+
+/* ── Section heading ────────────────────── */
+.sec-title { font-size:1.05rem; font-weight:700; margin-bottom:14px; color:var(--text-dark); }
+
+/* ── Modal wide ─────────────────────────────── */
+.modal-wide { max-width: 640px; }
+
+/* ── Modal section labels ───────────────────── */
+.modal-section-label {
+  font-size: .72rem; font-weight: 800;
+  color: var(--text-mid); text-transform: uppercase;
+  letter-spacing: .06em; padding: 8px 0 4px;
+  border-bottom: 2px solid var(--white-mid);
+  margin-top: 4px;
+}
+
+/* ── Credit section in modal ────────────────── */
+.credit-section {
+  background: var(--white-soft);
+  border: 1px solid var(--white-mid);
+  border-radius: var(--radius-sm);
+  padding: 16px;
+  display: flex; flex-direction: column; gap: 14px;
+}
+.credit-note {
+  display: flex; align-items: flex-start; gap: 8px;
+  font-size: .76rem; color: var(--text-soft); line-height: 1.55;
+  background: var(--blue-bg); border-radius: var(--radius-sm);
+  padding: 10px 12px;
+}
+
+/* ── Link pills in table ────────────────────── */
+.link-pill {
+  display: inline-flex; align-items: center; gap: 4px;
+  background: var(--blue-bg); color: var(--blue-main);
+  border-radius: 99px; padding: 3px 10px;
+  font-size: .73rem; font-weight: 600;
+  text-decoration: none; transition: var(--transition);
+}
+.link-pill:hover { background: var(--blue-main); color: white; }
+
+/* ── Form span-2 ────────────────────────────── */
+.form-grid .span-2 { grid-column: span 2; }
+
+/* ── Scrollable modal ───────────────────────── */
+.modal-overlay { align-items: flex-start; padding: 20px; }
+.modal {
+  max-height: 90vh;
+  overflow-y: auto;
+  margin: auto;
+}
