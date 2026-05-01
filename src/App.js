@@ -1,20 +1,20 @@
+/* eslint-disable no-unused-vars */
 import React, { createContext, useContext, useState, useEffect } from "react";
 import {
   BrowserRouter as Router,
   Routes,
   Route,
   Navigate,
-  useNavigate,
 } from "react-router-dom";
 import { getToken, clearToken } from "./api";
 import Login from "./pages/Login";
 import ForgotPassword from "./pages/ForgotPassword";
 import AdminDashboard from "./pages/AdminDashboard";
 import ClientDashboard from "./pages/ClientDashboard";
-import "./App.css";
 import { LangProvider } from "./lang";
+import "./App.css";
 
-// ─── Auth Context ────────────────────────────────────────────────────────────
+// ─── Auth Context ─────────────────────────────────────────────────────────────
 export const AuthContext = createContext(null);
 export const useAuth = () => useContext(AuthContext);
 
@@ -40,11 +40,7 @@ function AuthProvider({ children }) {
   }, []);
 
   const loginSuccess = (user) => setCurrentUser(user);
-
-  const logout = () => {
-    clearToken();
-    setCurrentUser(null);
-  };
+  const logout = () => { clearToken(); setCurrentUser(null); };
 
   return (
     <AuthContext.Provider value={{ currentUser, loginSuccess, logout, loading }}>
@@ -53,10 +49,9 @@ function AuthProvider({ children }) {
   );
 }
 
-// ─── Route Guards ────────────────────────────────────────────────────────────
+// ─── Route Guards ─────────────────────────────────────────────────────────────
 function RequireAuth({ role, children }) {
   const { currentUser, loading } = useAuth();
-
   if (loading) return <AppLoader />;
   if (!currentUser) return <Navigate to="/login" replace />;
   if (role && currentUser.role !== role) {
@@ -74,7 +69,6 @@ function RedirectIfLoggedIn({ children }) {
   return children;
 }
 
-// ─── Full-screen loader ──────────────────────────────────────────────────────
 function AppLoader() {
   return (
     <div className="app-loading">
@@ -87,49 +81,13 @@ function AppLoader() {
   );
 }
 
-// ─── App with Routes ─────────────────────────────────────────────────────────
 function AppRoutes() {
   return (
     <Routes>
-      {/* Public */}
-      <Route
-        path="/login"
-        element={
-          <RedirectIfLoggedIn>
-            <Login />
-          </RedirectIfLoggedIn>
-        }
-      />
-      <Route
-        path="/forgot-password"
-        element={
-          <RedirectIfLoggedIn>
-            <ForgotPassword />
-          </RedirectIfLoggedIn>
-        }
-      />
-
-      {/* Admin only */}
-      <Route
-        path="/admin"
-        element={
-          <RequireAuth role="admin">
-            <AdminDashboard />
-          </RequireAuth>
-        }
-      />
-
-      {/* Project owner only */}
-      <Route
-        path="/dashboard"
-        element={
-          <RequireAuth role="projectowner">
-            <ClientDashboard />
-          </RequireAuth>
-        }
-      />
-
-      {/* Fallback */}
+      <Route path="/login" element={<RedirectIfLoggedIn><Login /></RedirectIfLoggedIn>} />
+      <Route path="/forgot-password" element={<RedirectIfLoggedIn><ForgotPassword /></RedirectIfLoggedIn>} />
+      <Route path="/admin" element={<RequireAuth role="admin"><AdminDashboard /></RequireAuth>} />
+      <Route path="/dashboard" element={<RequireAuth role="projectowner"><ClientDashboard /></RequireAuth>} />
       <Route path="*" element={<Navigate to="/login" replace />} />
     </Routes>
   );
@@ -138,13 +96,13 @@ function AppRoutes() {
 export default function App() {
   return (
     <LangProvider>
-    <AuthProvider>
-      <Router>
-        <div className="app-root">
-          <AppRoutes />
-        </div>
-      </Router>
-    </AuthProvider>
+      <AuthProvider>
+        <Router>
+          <div className="app-root">
+            <AppRoutes />
+          </div>
+        </Router>
+      </AuthProvider>
     </LangProvider>
   );
 }

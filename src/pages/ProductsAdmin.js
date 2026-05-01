@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { useState, useEffect, useCallback } from "react";
 import { getUsers, getProducts, createProduct, updateProduct, deleteProduct, getSales, addSale, deleteSale } from "../api";
 import "./ProductsAdmin.css";

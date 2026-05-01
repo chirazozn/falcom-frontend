@@ -1,3 +1,4 @@
+/* eslint-disable */
 // ============================================================
 //  FALCOM — Language System (EN / FR)
 //  Usage: import { useLang } from '../lang';

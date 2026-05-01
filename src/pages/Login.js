@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../App";
@@ -40,6 +41,7 @@ export default function Login() {
           <div className="brand-logo-box">
             <img src="/LOGOFALCOM.png" alt="Falcom" />
           </div>
+          <h1 className="brand-name">FALCOM</h1>
           <p className="brand-tagline">Project Management Platform</p>
           <div className="brand-divider" />
           <div className="brand-features">

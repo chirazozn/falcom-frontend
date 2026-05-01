@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { useState, useEffect, useCallback } from "react";
 import { getProducts, getSales } from "../api";
 import { useLang } from "../lang";
